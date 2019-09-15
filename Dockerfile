@@ -10,7 +10,7 @@ RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 0x1657198823e
 RUN apt-get update && apt-get install -y zerotier-one=1.4.6
 COPY main.sh /var/lib/zerotier-one/main.sh
 
-FROM alpine:latest
+FROM alpine:3.10.2
 LABEL version="1.4.6"
 LABEL description="Containerized ZeroTier One for use on CoreOS or other Docker-only Linux hosts."
 
