@@ -6,7 +6,7 @@ FROM debian:buster-slim as builder
 
 RUN apt-get update && apt-get install -y curl gnupg
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0x1657198823e52a61  && \
-    echo "deb http://download.zerotier.com/debian/buster buster main" > /etc/apt/sources.list.d/zerotier.list
+    echo "deb https://download.zerotier.com/debian/buster buster main" > /etc/apt/sources.list.d/zerotier.list
 RUN apt-get update && apt-get install -y zerotier-one=1.6.5
 COPY main.sh /var/lib/zerotier-one/main.sh
 
