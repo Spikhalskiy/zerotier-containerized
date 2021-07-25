@@ -10,7 +10,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0x1657198823e52a61 
 RUN apt-get update && apt-get install -y zerotier-one=1.6.5
 COPY main.sh /var/lib/zerotier-one/main.sh
 
-FROM frolvlad/alpine-glibc:alpine-3.12_glibc-2.32
+FROM alpine:3.14
 
 LABEL version="1.6.5"
 LABEL description="Containerized ZeroTier One for use on CoreOS or other Docker-only Linux hosts."
