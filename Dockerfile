@@ -4,8 +4,8 @@ FROM debian:bullseye-slim as builder
 
 ## Supports x86_64, x86, arm, and arm64
 
-RUN apt-get update && apt-get install -y curl gnupg
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 0x1657198823e52a61  && \
+RUN apt-get update && apt-get install -y curl
+RUN curl -s "https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg" > /etc/apt/trusted.gpg.d/zerotier.asc && \
     echo "deb http://download.zerotier.com/debian/bullseye bullseye main" > /etc/apt/sources.list.d/zerotier.list
 RUN apt-get update && apt-get install -y zerotier-one=1.6.5
 COPY main.sh /var/lib/zerotier-one/main.sh
