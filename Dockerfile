@@ -6,7 +6,7 @@ FROM debian:bullseye-slim as builder
 
 RUN apt-get update && apt-get install -y curl
 RUN curl -s "https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg" > /etc/apt/trusted.gpg.d/zerotier.asc && \
-    echo "deb http://download.zerotier.com/debian/bullseye bullseye main" > /etc/apt/sources.list.d/zerotier.list
+    echo "deb https://download.zerotier.com/debian/bullseye bullseye main" > /etc/apt/sources.list.d/zerotier.list
 RUN apt-get update && apt-get install -y zerotier-one=1.6.6
 COPY main.sh /var/lib/zerotier-one/main.sh
 
