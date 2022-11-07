@@ -1,3 +1,5 @@
+# This repository is deprecated. Please use Zyclonite [image](https://hub.docker.com/r/zyclonite/zerotier/) and [repository](https://github.com/zyclonite/zerotier-docker) instead.
+
 # zerotier-containerized
 
 It's a minimalistic docker image with Zerotier client.
