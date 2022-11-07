@@ -8,6 +8,10 @@ RUN apt-get update && apt-get install -y curl
 RUN curl -s "https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg" > /etc/apt/trusted.gpg.d/zerotier.asc && \
     echo "deb https://download.zerotier.com/debian/bullseye bullseye main" > /etc/apt/sources.list.d/zerotier.list
 RUN apt-get update && apt-get install -y zerotier-one=1.10.2
+
+# https://github.com/Docker-Hub-frolvlad/docker-alpine-glibc/issues/34#issuecomment-521536816
+RUN grep -r backtrace_symbols /usr/lib* /lib*
+
 COPY main.sh /var/lib/zerotier-one/main.sh
 
 FROM frolvlad/alpine-glibc:alpine-3.16_glibc-2.35
